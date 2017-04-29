@@ -1,0 +1,19 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menuList">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "168網站", home_page_index_path, :class => "navbar-brand" %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="menuList">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to "首頁"%></li>
+        <li><%= link_to "子網頁"%></li>
+      </ul>
+    </div>
+  </div>
+</nav>
