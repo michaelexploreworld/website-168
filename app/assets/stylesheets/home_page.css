@@ -1,0 +1,16 @@
+#websiteHeader {
+  text-align: center;
+}
+
+/*.website-logo {
+  width: 400px;
+  height: 200px;
+}*/
+
+.animation, .staggered-animation{
+  opacity: 0;
+}
+
+.animation.animated, .staggered-animation.animated{
+  opacity: 1;
+}

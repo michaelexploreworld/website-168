@@ -17,3 +17,54 @@
     </div>
   </div>
 </nav>
+
+<section class="container">
+  <div class="jumbotron">
+    <h1>瀏覽人數<h1>
+    <h1>搜尋引擎<h1>
+  </div>
+</section>
+
+<section class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h2 id="websiteHeader">子網頁<h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <% websiteCount = 1 %>
+      <% @websites.each do |website| %>
+        <% if (websiteCount - 1) % 4 == 0 %>
+          <div class="row">
+        <% end %>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation" data-animation="fadeInUp" data-animation-delay="0s">
+          <%= link_to image_tag(website.logo, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
+          <div class="panel panel-default">
+            <% contentName = "content" + websiteCount.to_s %>
+            <div class="panel-heading", data-target = "<%= "##{contentName}" %>">
+              <h3 class="panel-title">
+                <%= website.name %>
+              </h3>
+            </div>
+            <div id="<%= contentName %>" class="collapse">
+              <div class="panel-body"><%= website.description %></div>
+            </div>
+          </div>
+        </div>
+
+        <% if websiteCount % 2 == 0 %>
+          <div class="clearfix visible-md"></div>
+        <% end %>
+
+        <% if websiteCount % 4 == 0 || websiteCount == @websites.count %>
+          </div>
+          <div class="clearfix visible-lg visible-md"></div>
+        <% end %>
+
+        <% websiteCount += 1 %>
+      <% end %>
+    </div>
+  </div>
+</section>
