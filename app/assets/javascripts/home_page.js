@@ -8,24 +8,20 @@ $(document).ready(function () {
   });
 });
 
-function onScrollInit(items, trigger) {
+function onScrollInit(items) {
   items.each(function() {
     var element = $(this),
-        animationClass = element.attr('data-animation'),
-        animationDelay = element.attr('data-animation-delay');
+        animationDownAction = element.attr('data-animation-down-action');
+        animationUpAction = element.attr('data-animation-up-action');
 
-    element.css({
-      '-webkit-animation-delay': animationDelay,
-      '-moz-animation-delay':    animationDelay,
-      'animation-delay':         animationDelay
-    });
-
-    var elementTrigger = (trigger) ? trigger : element;
-
-    elementTrigger.waypoint(function() {
-      element.addClass('animated').addClass(animationClass);
-      },{
-          offset: '90%'
-    });
+    element.waypoint(function(direction) {
+        if(direction === "down") {
+          element.addClass(animationDownAction);
+          element.removeClass(animationUpAction);
+        } else if(direction === "up") {
+          element.addClass(animationUpAction);
+          element.removeClass(animationDownAction);
+        }
+      }, { offset: '80%'});
   });
 }

@@ -29,6 +29,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <h2 id="websiteHeader">子網頁<h2>
+      <hr id="line-seperator">
     </div>
   </div>
   <div class="row">
@@ -39,7 +40,7 @@
           <div class="row">
         <% end %>
 
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation" data-animation="fadeInUp" data-animation-delay="0s">
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
           <%= link_to image_tag(website.logo, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
           <div class="panel panel-default">
             <% contentName = "content" + websiteCount.to_s %>
