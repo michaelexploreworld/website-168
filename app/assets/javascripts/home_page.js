@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  initScrollSpy();
 
   onScrollInit($('.animation'));
 
@@ -7,6 +8,24 @@ $(document).ready(function () {
     $(target).collapse('toggle');
   });
 });
+
+function initScrollSpy() {
+  $('body').scrollspy({target: ".navbar", offset: 50});
+
+  $("#menuList a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+
+      var hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function() {
+        window.location.hash = hash;
+      });
+    }
+  });
+}
 
 function onScrollInit(items) {
   items.each(function() {

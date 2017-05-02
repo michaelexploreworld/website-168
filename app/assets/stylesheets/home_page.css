@@ -1,13 +1,25 @@
-#websiteHeader {
-  text-align: center;
+body {
+  position: relative; 
 }
 
-.animation {
-  opacity: 0;
+#home {
+  margin-top: 50px;
+}
+
+#subwebsite {
+  padding-top: 50px;
+}
+
+#websiteHeader {
+  text-align: center;
 }
 
 #line-seperator {
 	height: 10px;
 	border: 0;
 	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+.animation {
+  opacity: 0;
 }
