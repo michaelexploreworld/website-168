@@ -28,15 +28,29 @@
 
 <section id="search" class="container">
   <div class="jumbotron">
-    <h1>瀏覽人數<h1>
-    <h1>搜尋引擎<h1>
+    <h1>瀏覽人數</h1>
+    <input id="searchBox" type="text" placeholder="name to search"/>
+    <style id="search_style"></style>
+    <script type="text/javascript">
+      var searchStyle = document.getElementById('search_style');
+      document.getElementById('searchBox').addEventListener('input', function () {
+        if (!this.value) {
+          searchStyle.innerHTML = "";
+          return;
+        }
+        // look ma, no indexOf!
+        searchStyle.innerHTML = ".wrap:not([data-index*=\"" + this.value.toLowerCase() + "\"]) { display: none; }";
+        // beware of css injections!
+      });
+    </script>
   </div>
 </section>
 
 <section id="subwebsite" class="container">
+
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <h2 id="websiteHeader">子網頁<h2>
+      <h2 id="websiteHeader">子網頁</h2>
       <hr id="line-seperator">
     </div>
   </div>
@@ -48,23 +62,25 @@
           <div class="row">
         <% end %>
 
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
-          <%= link_to image_tag(website.logo.standard.url, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
-          <div class="panel panel-default">
-            <% contentName = "content" + websiteCount.to_s %>
-            <div class="panel-heading", data-target = "<%= "##{contentName}" %>">
-              <h3 class="panel-title">
-                <%= website.name %>
-              </h3>
-            </div>
-            <div id="<%= contentName %>" class="collapse">
-              <div class="panel-body"><%= website.description %></div>
+        <div class="wrap" data-index="1111">
+          <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
+            <%= link_to image_tag(website.logo.standard.url, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
+            <div class="panel panel-default">
+              <% contentName = "content" + websiteCount.to_s %>
+              <div class="panel-heading", data-target = "<%= "##{contentName}" %>">
+                <h3 class="panel-title">
+                  <%= website.name %>
+                </h3>
+              </div>
+              <div id="<%= contentName %>" class="collapse">
+                <div class="panel-body"><%= website.description %></div>
+              </div>
             </div>
           </div>
         </div>
 
         <% if websiteCount % 2 == 0 %>
-          <div class="clearfix visible-md"></div>
+        <div class="clearfix visible-md"></div>
         <% end %>
 
         <% if websiteCount % 4 == 0 || websiteCount == @websites.count %>
