@@ -29,20 +29,8 @@
 <section id="search" class="container">
   <div class="jumbotron">
     <h1>瀏覽人數</h1>
-    <input id="searchBox" type="text" placeholder="name to search"/>
+    <input id="searchBox" type="text" placeholder="name to search" value="" />
     <style id="search_style"></style>
-    <script type="text/javascript">
-      var searchStyle = document.getElementById('search_style');
-      document.getElementById('searchBox').addEventListener('input', function () {
-        if (!this.value) {
-          searchStyle.innerHTML = "";
-          return;
-        }
-        // look ma, no indexOf!
-        searchStyle.innerHTML = ".wrap:not([data-index*=\"" + this.value.toLowerCase() + "\"]) { display: none; }";
-        // beware of css injections!
-      });
-    </script>
   </div>
 </section>
 
@@ -62,7 +50,7 @@
           <div class="row">
         <% end %>
 
-        <div class="wrap" data-index="1111">
+        <div class="wrap" data-index="<%= website.name %>">
           <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
             <%= link_to image_tag(website.logo.standard.url, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
             <div class="panel panel-default">

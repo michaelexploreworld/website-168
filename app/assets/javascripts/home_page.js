@@ -11,9 +11,18 @@ function createHomePageController() {
         var target = $(this).data("target");
         $(target).collapse('toggle');
       });
+
+      var searchStyle = document.getElementById('search_style');
+      document.getElementById('searchBox').addEventListener('input', function () {
+        if (!this.value) {
+          searchStyle.innerHTML = "";
+          return;
+        }
+        searchStyle.innerHTML = ".wrap:not([data-index*=\"" + this.value.toLowerCase() + "\"]) { display: none; }";
+      });
     }
-  };
-};
+  }
+}
 
 function initScrollSpy() {
   $('body').scrollspy({target: ".navbar", offset: 50});
