@@ -10,15 +10,23 @@
     </div>
 
     <div class="collapse navbar-collapse" id="menuList">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "首頁", "#home" %></li>
-        <li><%= link_to "子網頁", "#subwebsite" %></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "#search" do %>
+            <span class="glyphicon glyphicon-search"></span> 搜尋
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#subwebsite" do %>
+            <span class="glyphicon glyphicon-globe"></span> 子網站
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<section id="home" class="container">
+<section id="search" class="container">
   <div class="jumbotron">
     <h1>瀏覽人數<h1>
     <h1>搜尋引擎<h1>

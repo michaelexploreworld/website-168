@@ -15,4 +15,25 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.waypoints.min
+//= require jsManagement
 //= require_tree .
+
+(function($, undefined) {
+  $(document).on('turbolinks:load', function () {
+    var $body = $("body")
+    var controller = $body.data("controller").replace(/\//g, "_");
+    var action = $body.data("action");
+
+    var activeController = jsManagement[controller];
+
+    if (activeController !== undefined) {
+      if ($.isFunction(activeController.init)) {
+        activeController.init();
+      }
+
+      if ($.isFunction(activeController[action])) {
+        activeController[action]();
+      }
+    }
+  });
+})(jQuery);

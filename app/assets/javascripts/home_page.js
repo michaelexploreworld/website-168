@@ -1,13 +1,19 @@
-$(document).on('turbolinks:load', function () {
-  initScrollSpy();
+jsManagement.home_page = createHomePageController();
 
-  onScrollInit($('.animation'));
+function createHomePageController() {
+  return {
+    index: function () {
+      initScrollSpy();
 
-  $('.panel-heading').click(function () {
-    var target = $(this).data("target");
-    $(target).collapse('toggle');
-  });
-});
+      onScrollInit($('.animation'));
+
+      $('.panel-heading').click(function () {
+        var target = $(this).data("target");
+        $(target).collapse('toggle');
+      });
+    }
+  };
+};
 
 function initScrollSpy() {
   $('body').scrollspy({target: ".navbar", offset: 50});

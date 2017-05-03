@@ -2,11 +2,7 @@ body {
   position: relative;
 }
 
-#home {
-  margin-top: 50px;
-}
-
-#subwebsite {
+#subwebsite, #search {
   padding-top: 50px;
 }
 
