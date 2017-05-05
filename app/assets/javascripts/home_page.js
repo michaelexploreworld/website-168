@@ -12,16 +12,9 @@ function createHomePageController() {
         $(target).collapse('toggle');
       });
 
-      var searchStyle = document.getElementById('search_style');
-      document.getElementById('searchBox').addEventListener('input', function () {
-        if (!this.value) {
-          searchStyle.innerHTML = "";
-          return;
-        }
-        searchStyle.innerHTML = ".wrap:not([data-index*=\"" + this.value.toLowerCase() + "\"]) { display: none; }";
-      });
+      searchSubwebsite();
     }
-  }
+  };
 }
 
 function initScrollSpy() {
@@ -59,3 +52,14 @@ function onScrollInit(items) {
       }, { offset: '80%'});
   });
 }
+
+function searchSubwebsite() {
+  var searchStyle = document.getElementById('search_style');
+  document.getElementById('searchBox').addEventListener('input', function () {
+    if (!this.value) {
+      searchStyle.innerHTML = "";
+      return;
+    }
+    searchStyle.innerHTML = ".wrap:not([data-index*=\"" + this.value.toLowerCase() + "\"]) { display: none; }";
+  });
+};
