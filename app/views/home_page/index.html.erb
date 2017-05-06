@@ -26,30 +26,41 @@
   </div>
 </nav>
 
-<section id="search" class="container">
-  <div class="jumbotron">
-    <a href="http://www.access-counter.net" target="_blank"><img src="http://www.access-counter.net/services/imagedigits/counter.php?aut=cd144f01f6bf2d925bd9ffcb0573400006135360fd20f01870086f92d5fc0ce2c91167e613d259ca8d7e3a1c" alt="無料カウンター" border="0" /></a></br>
-    <!--カウンター画像からは配布サイトへリンクが設定されています。また、誤作動、誤表示の原因となりますのでコードの改変、改行は行わないで下さい。
-    このコメント部分は削除して頂いても結構です。-->
-    <script language="Javascript">
-    document.write('<a href="http://www.free-counter.jp/"></a>');</script><noscript>
-    <a href="http://hrs.f-counter.com/">カウンター</a><a href="http://hqm.f-counter.com/">カウンター</a></noscript>
-    <nobr><table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><a href="http://www.free-counter.jp/" target="_blank"><img src="https://www.f-counter.net/ani1/27/1494041515/" alt="カウンター" border="0" style="margin:0px; padding:0px; border:0px; vertical-align:bottom"></a></td>
-    <td><a href="http://www.free-counter.jp/" target="_blank"><img src="https://www.f-counter.net/ani2/27/1494041515/" alt="カウンター" border="0" style="margin:0px; padding:0px; border:0px; vertical-align:bottom"></a></td></tr></tbody></table></nobr>
+<section id="home" class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="jumbotron text-center">
+        <div class="row">
+          <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
+            <a href="http://www.access-counter.net" target="_blank"><img src="http://www.access-counter.net/services/imagedigits/counter.php?aut=cd144f01f6bf2d925bd9ffcb0573400006135360fd20f01870086f92d5fc0ce2c91167e613d259ca8d7e3a1c" alt="無料カウンター" border="0"></a><br>
+            <!--カウンター画像からは配布サイトへリンクが設定されています。また、誤作動、誤表示の原因となりますのでコードの改変、改行は行わないで下さい。
+            このコメント部分は削除して頂いても結構です。-->
+            <script language="Javascript">
+              document.write('<a href="http://www.free-counter.jp/"></a>');</script><a href="http://www.free-counter.jp/"></a><noscript>
+              &lt;a href="http://hrs.f-counter.com/"&gt;カウンター&lt;/a&gt;&lt;a href="http://hqm.f-counter.com/"&gt;カウンター&lt;/a&gt;</noscript>
+              <nobr><table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><a href="http://www.free-counter.jp/" target="_blank"><img src="https://www.f-counter.net/ani1/27/1494041515/" alt="カウンター" border="0" style="margin:0px; padding:0px; border:0px; vertical-align:bottom"></a></td>
+              <td><a href="http://www.free-counter.jp/" target="_blank"><img src="https://www.f-counter.net/ani2/27/1494041515/" alt="カウンター" border="0" style="margin:0px; padding:0px; border:0px; vertical-align:bottom"></a></td></tr></tbody></table></nobr>
 
-    <input id="searchBox" type="text" placeholder="name to search" value="" />
-    <style id="search_style"></style>
+            <!-- Add search box. -->
+            <div class="input-group">
+              <span class="input-group-addon glyphicon glyphicon-search"></span>
+              <input id="searchBox" class="form-control" type="text" placeholder="搜尋子網頁..." value="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="subwebsite" class="container">
-
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <h2 id="websiteHeader">子網頁</h2>
       <hr id="line-seperator">
     </div>
   </div>
+
   <div class="row">
     <div class="container">
       <% websiteCount = 1 %>
@@ -58,9 +69,9 @@
           <div class="row">
         <% end %>
 
-        <div class="wrap" data-index="<%= website.name %>">
-          <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
-            <%= link_to image_tag(website.logo.standard.url, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
+          <div class="subwebsite-item" data-keyword="<%= website.name %>">
+            <%= link_to image_tag(website.logo, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
             <div class="panel panel-default">
               <% contentName = "content" + websiteCount.to_s %>
               <div class="panel-heading", data-target = "<%= "##{contentName}" %>">

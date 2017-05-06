@@ -54,12 +54,13 @@ function onScrollInit(items) {
 }
 
 function searchSubwebsite() {
-  var searchStyle = document.getElementById('search_style');
-  document.getElementById('searchBox').addEventListener('input', function () {
-    if (!this.value) {
-      searchStyle.innerHTML = "";
-      return;
+  $('#searchBox').on('input', function() {
+    var userInput = $(this).val();
+
+    if(userInput === "") {
+      $('.subwebsite-item').removeClass("hide-subwebsite-item");
+    } else {
+      $('.subwebsite-item').not("[data-keyword*=\"" + userInput.toLowerCase() + "\"]").addClass("hide-subwebsite-item");
     }
-    searchStyle.innerHTML = ".wrap:not([data-index*=\"" + this.value.toLowerCase() + "\"]) { display: none; }";
   });
 };
