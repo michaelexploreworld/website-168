@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require jquery.waypoints.min
 //= require jsManagement
+//= require toastr
 //= require_tree .
 
 (function($, undefined) {

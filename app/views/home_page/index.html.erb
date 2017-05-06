@@ -49,7 +49,7 @@
         <% end %>
 
         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
-          <%= link_to image_tag(website.logo, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
+          <%= link_to image_tag(website.logo.standard.url, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
           <div class="panel panel-default">
             <% contentName = "content" + websiteCount.to_s %>
             <div class="panel-heading", data-target = "<%= "##{contentName}" %>">

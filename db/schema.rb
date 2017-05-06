@@ -10,16 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502123722) do
+ActiveRecord::Schema.define(version: 20170504013306) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "email",               default: "", null: false
+    t.string   "encrypted_password",  default: "", null: false
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",       default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.index ["email"], name: "index_admins_on_email", unique: true
+  end
 
   create_table "websites", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.text     "url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "logo"
-    t.text     "keyword"
+    t.string   "name",                     null: false
+    t.text     "description",              null: false
+    t.string   "url",                      null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "logo",        default: "", null: false
+    t.string   "keyword",     default: "", null: false
   end
 
 end

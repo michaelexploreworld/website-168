@@ -20,6 +20,17 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # Use Bootstrap for front-end framework
 gem 'bootstrap-sass', '~> 3.3.6'
+# Use Devise for user authentication
+gem 'devise'
+# Use Toastr for non-blocking notifications
+gem 'toastr-rails'
+# Use RailsAdmin to provides an easy-to-use interface for managing data.
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+# Use Carrierwave to implement image uploader
+gem 'carrierwave'
+# Use MiniMagick for image processing 
+gem 'mini_magick', '~> 3.5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

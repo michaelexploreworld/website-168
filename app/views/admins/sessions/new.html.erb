@@ -1,0 +1,21 @@
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
+    <h2 class="form-signin-heading">168網站後台管理</h3>
+
+    <%= f.label :email, '電子郵件地址', class: 'sr-only' %>
+    <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: '電子郵件地址' %>
+
+    <%= f.label :password, '密碼', class: 'sr-only' %>
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: '密碼' %>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="checkbox">
+        <%= f.label :remember_me do %>
+          <%= f.check_box :remember_me %> 記住我
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= f.submit "登入", class: 'btn btn-lg btn-primary btn-block' %>
+  <% end %>
+</div>
