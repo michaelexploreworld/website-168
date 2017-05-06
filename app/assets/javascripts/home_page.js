@@ -11,9 +11,11 @@ function createHomePageController() {
         var target = $(this).data("target");
         $(target).collapse('toggle');
       });
+
+      searchSubwebsite();
     }
   };
-};
+}
 
 function initScrollSpy() {
   $('body').scrollspy({target: ".navbar", offset: 50});
@@ -50,3 +52,15 @@ function onScrollInit(items) {
       }, { offset: '80%'});
   });
 }
+
+function searchSubwebsite() {
+  $('#searchBox').on('input', function() {
+    var userInput = $(this).val();
+
+    if(userInput === "") {
+      $('.subwebsite-item').removeClass("hide-subwebsite-item");
+    } else {
+      $('.subwebsite-item').not("[data-keyword*=\"" + userInput.toLowerCase() + "\"]").addClass("hide-subwebsite-item");
+    }
+  });
+};

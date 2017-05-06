@@ -19,3 +19,7 @@ body {
 .animation {
   opacity: 0;
 }
+
+.hide-subwebsite-item {
+  display: none;
+}
