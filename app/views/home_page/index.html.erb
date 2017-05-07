@@ -45,6 +45,7 @@
             <div class="input-group">
               <span class="input-group-addon glyphicon glyphicon-search"></span>
               <input id="searchBox" class="form-control" type="text" placeholder="搜尋子網頁..." value="">
+              <style id="m-search"></style>
             </div>
           </div>
         </div>
@@ -70,7 +71,7 @@
         <% end %>
 
         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
-          <div class="subwebsite-item" data-keyword="<%= website.name %>">
+          <div class="subwebsite-item" data-keyword="<%= website.keyword %>">
             <%= link_to image_tag(website.logo, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
             <div class="panel panel-default">
               <% contentName = "content" + websiteCount.to_s %>
