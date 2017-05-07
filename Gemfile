@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem "mysql2"
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -29,7 +30,7 @@ gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 # Use Carrierwave to implement image uploader
 gem 'carrierwave'
-# Use MiniMagick for image processing 
+# Use MiniMagick for image processing
 gem 'mini_magick', '~> 3.5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
