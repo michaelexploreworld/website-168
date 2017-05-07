@@ -27,4 +27,4 @@ production:
   database: 168website
   host: localhost
   username: root
-  password: 168world
+  password: "168world"
