@@ -68,16 +68,12 @@
 
         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
           <div class="subwebsite-item" data-keyword="<%= website.keyword %>">
-            <%= link_to image_tag(website.logo, :class => "img-responsive center-block img-rounded website-logo"), website.url %>
-            <div class="panel panel-default">
-              <% contentName = "content" + websiteCount.to_s %>
-              <div class="panel-heading", data-target = "<%= "##{contentName}" %>">
-                <h3 class="panel-title">
-                  <%= website.name %>
-                </h3>
-              </div>
-              <div id="<%= contentName %>" class="collapse">
-                <div class="panel-body"><%= website.description %></div>
+            <div class="thumbnail">
+              <%= link_to image_tag(website.logo.standard.url, :alt => website.name), website.url %>
+              <div class="caption">
+                <h3><%= website.name %></h3>
+                <p><%= website.description %></p>
+                <p><%= link_to "進入", website.url, :class => "btn btn-primary", :role => "button" %></p>
               </div>
             </div>
           </div>
