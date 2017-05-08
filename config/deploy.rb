@@ -16,7 +16,6 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 set :passenger_restart_with_touch, true
 namespace :deploy do
   # ...原本的code
-
   task :bundle do
     on roles(:web) do
       execute "cd /home/deploy/website-168/current; bundle install"
@@ -24,9 +23,7 @@ namespace :deploy do
   end
 
   after :deploy, "deploy:bundle"
-end
-
-path = "cd /home/www//current;"
+  path = "cd /home/deploy/website-168/current;"
 task :migrate do
   on roles(:web) do
     execute "#{path}rake db:migrate RAILS_ENV=production"
@@ -42,6 +39,8 @@ end
 
 after :deploy, "deploy:migrate"
 after :deploy, "deploy:precompile"
+
+end
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
