@@ -30,15 +30,8 @@ task :migrate do
   end
 end
 
-task :precompile do
-  on roles(:web) do
-    execute "#{path}rake assets:clean"
-    execute "#{path}rake assets:precompile"
-  end
-end
-
 after :deploy, "deploy:migrate"
-after :deploy, "deploy:precompile"
+
 
 end
 # Default branch is :master
