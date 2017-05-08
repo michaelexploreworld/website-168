@@ -12,12 +12,12 @@
     <div class="collapse navbar-collapse" id="menuList">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to "#search" do %>
+          <%= link_to "#search-section" do %>
             <span class="glyphicon glyphicon-search"></span> 搜尋
           <% end %>
         </li>
         <li>
-          <%= link_to "#subwebsite" do %>
+          <%= link_to "#subwebsite-section" do %>
             <span class="glyphicon glyphicon-globe"></span> 子網站
           <% end %>
         </li>
@@ -26,7 +26,7 @@
   </div>
 </nav>
 
-<section id="home" class="container">
+<section id="search-section" class="container">
   <div class="row">
     <div class="col-lg-12">
       <div class="jumbotron text-center">
@@ -45,7 +45,7 @@
             <div class="input-group">
               <span class="input-group-addon glyphicon glyphicon-search"></span>
               <input id="searchBox" class="form-control" type="text" placeholder="搜尋子網頁..." value="">
-              <style id="m-search"></style>
+              <style id="searchStyle"></style>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
   </div>
 </section>
 
-<section id="subwebsite" class="container">
+<section id="subwebsite-section" class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <h2 id="websiteHeader">子網頁</h2>

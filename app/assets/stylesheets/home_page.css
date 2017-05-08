@@ -2,7 +2,7 @@ body {
   position: relative;
 }
 
-#subwebsite, #search {
+#subwebsite-section, #search-section {
   padding-top: 50px;
 }
 
@@ -18,8 +18,4 @@ body {
 
 .animation {
   opacity: 0;
-}
-
-.hide-subwebsite-item {
-  display: none;
 }

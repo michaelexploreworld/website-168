@@ -56,12 +56,12 @@ function onScrollInit(items) {
 function searchSubwebsite() {
   $('#searchBox').on("input", function(){
     var userInput = $(this).val();
-    var mSearch = $("#m-search");
-    if(!userInput) {
-      mSearch.html("");
-      return;
-    }
-      mSearch.html('.subwebsite-item:not([data-keyword*="' + userInput.toLowerCase() + '"]) {display: none;}');
+    var $searchStyle = $('#searchStyle');
 
+    if(!userInput) {
+      $searchStyle.html("");
+    } else {
+      $searchStyle.html('.subwebsite-item:not([data-keyword*="' + userInput.toLowerCase() + '"]) {display: none;}');
+    }
   });
 };
