@@ -2,7 +2,7 @@ body {
   position: relative;
 }
 
-#subwebsite, #search {
+#subwebsite-section, #search-section {
   padding-top: 50px;
 }
 
@@ -20,6 +20,6 @@ body {
   opacity: 0;
 }
 
-.hide-subwebsite-item {
-  display: none;
+#access-counter {
+  margin-bottom: 40px;
 }
