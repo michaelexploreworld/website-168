@@ -19,3 +19,7 @@ body {
 .animation {
   opacity: 0;
 }
+
+#access-counter {
+  margin-bottom: 40px;
+}
