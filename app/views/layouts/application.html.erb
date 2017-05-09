@@ -1,7 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
   <head>
-    <title>Website168</title>
+    <meta charset="UTF-8">
+    <!-- This is useful in case our page is opened using the Internet Explorer.
+         It basically tells the browser to render the page using the latest rendering engine. -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="金翼, 吳皇毅">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- We need this to optimize our page to mobile device. -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph protocol promotes integration between Facebook and other websites by allowing
+         them to become rich “graph” objects with the same functionality as other Facebook objects. -->
+    <meta property="og:title" content="168入口網站">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.168.world">
+    <meta property="og:url" content="http://www.168ing.xyz">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="">
+
+    <title>168入口網站</title>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
