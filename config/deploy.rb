@@ -30,8 +30,23 @@ task :migrate do
   end
 end
 
-after :deploy, "deploy:migrate"
+task :precompile do
+  on roles(:web) do
+    execute "#{path}rake rake assets:clobber"
+    execute "#{path}rake assets:precompile"
+  end
+end
 
+after :deploy, "deploy:migrate"
+after :deploy, "deploy:precompile"
+
+task :symlink do
+  on roles(:web) do
+    execute "cd /home/deploy/website-168/current/public; ln -s /home/deploy/website-168/shared/public/uploads"
+  end
+end
+
+after :deploy, "deploy:symlink"
 
 end
 # Default branch is :master
