@@ -32,7 +32,7 @@ end
 
 task :precompile do
   on roles(:web) do
-    execute "#{path}rake rake assets:clobber"
+    execute "#{path}rake assets:clean"
     execute "#{path}rake assets:precompile"
   end
 end
