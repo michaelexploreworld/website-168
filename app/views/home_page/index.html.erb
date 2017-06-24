@@ -1,106 +1,108 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menuList">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "168精彩你的世界", home_page_index_path, :class => "navbar-brand" %>
+<div id="home-page-content">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menuList">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "168精彩你的世界", home_page_index_path, :class => "navbar-brand" %>
+      </div>
+
+      <div class="collapse navbar-collapse" id="menuList">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "#search-section" do %>
+              <span class="glyphicon glyphicon-search"></span> 搜尋
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#subwebsite-section" do %>
+              <span class="glyphicon glyphicon-globe"></span> 168集團
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <div class="collapse navbar-collapse" id="menuList">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to "#search-section" do %>
-            <span class="glyphicon glyphicon-search"></span> 搜尋
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "#subwebsite-section" do %>
-            <span class="glyphicon glyphicon-globe"></span> 168集團
-          <% end %>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <section id="search-section" class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="jumbotron text-center">
+          <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
+              <!-- Add access counter. -->
+              <h2>瀏覽人數</h2>
+              <img id="access-counter" src="http://www.reliablecounter.com/count.php?page=88888888888888888888888&digit=style/black-and-white/15/&reloads=0" alt="www.reliablecounter.com" title="www.reliablecounter.com" border="0"></a><br/>
 
-<section id="search-section" class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="jumbotron text-center">
-        <div class="row">
-          <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
-            <!-- Add access counter. -->
-            <h2>瀏覽人數</h2>
-            <img id="access-counter" src="http://www.reliablecounter.com/count.php?page=88888888888888888888888&digit=style/black-and-white/15/&reloads=0" alt="www.reliablecounter.com" title="www.reliablecounter.com" border="0"></a><br/>
-
-            <!-- Add search box. -->
-            <h2>搜尋168集團</h2>
-            <div class="input-group">
-              <span class="input-group-addon glyphicon glyphicon-search"></span>
-              <input id="searchBox" class="form-control" type="text" placeholder="輸入關鍵字..." value="">
-              <style id="searchStyle"></style>
+              <!-- Add search box. -->
+              <h2>搜尋168集團</h2>
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-search"></span>
+                <input id="searchBox" class="form-control" type="text" placeholder="輸入關鍵字..." value="">
+                <style id="searchStyle"></style>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="subwebsite-section" class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <h2 id="websiteHeader">168集團</h2>
-      <hr id="line-seperator">
+  <section id="subwebsite-section" class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h2 id="websiteHeader">168集團</h2>
+        <hr id="line-seperator">
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="container">
-      <% websiteCount = 1 %>
-      <% @websites.each do |website| %>
-        <% if (websiteCount - 1) % 4 == 0 %>
-          <div class="row">
-        <% end %>
+    <div class="row">
+      <div class="container">
+        <% websiteCount = 1 %>
+        <% @websites.each do |website| %>
+          <% if (websiteCount - 1) % 4 == 0 %>
+            <div class="row">
+          <% end %>
 
-        <div class="subwebsite-item" data-keyword="<%= website.keyword %>">
-          <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
-            <div class="thumbnail">
-              <%= link_to image_tag(website.logo.standard.url, :alt => website.name), website.url %>
-              <div class="caption">
-                <h3><%= website.name %></h3>
-                <p><%= website.description %></p>
-                <p><%= link_to "進入", website.url, :class => "btn btn-primary", :role => "button" %></p>
+          <div class="subwebsite-item" data-keyword="<%= website.keyword %>">
+            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
+              <div class="thumbnail">
+                <%= link_to image_tag(website.logo.standard.url, :alt => website.name), website.url %>
+                <div class="caption">
+                  <h3><%= website.name %></h3>
+                  <p><%= website.description %></p>
+                  <p><%= link_to "進入", website.url, :class => "btn btn-primary", :role => "button" %></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <% if websiteCount % 2 == 0 %>
-        <div class="clearfix visible-md"></div>
+          <% if websiteCount % 2 == 0 %>
+          <div class="clearfix visible-md"></div>
+          <% end %>
+
+          <% if websiteCount % 4 == 0 || websiteCount == @websites.count %>
+            </div>
+            <div class="clearfix visible-lg visible-md"></div>
+          <% end %>
+
+          <% websiteCount += 1 %>
         <% end %>
-
-        <% if websiteCount % 4 == 0 || websiteCount == @websites.count %>
-          </div>
-          <div class="clearfix visible-lg visible-md"></div>
-        <% end %>
-
-        <% websiteCount += 1 %>
-      <% end %>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Google analytics plugin -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  <!-- Google analytics plugin -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-98606061-1', 'auto');
-  ga('send', 'pageview');
-</script>
+    ga('create', 'UA-98606061-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</div>

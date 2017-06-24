@@ -1,25 +1,25 @@
-body {
+#home-page-content {
   position: relative;
 }
 
-#subwebsite-section, #search-section {
+#home-page-content #subwebsite-section, #home-page-content #search-section {
   padding-top: 50px;
 }
 
-#websiteHeader {
+#home-page-content #websiteHeader {
   text-align: center;
 }
 
-#line-seperator {
+#home-page-content #line-seperator {
 	height: 10px;
 	border: 0;
 	box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
 
-.animation {
+#home-page-content .animation {
   opacity: 0;
 }
 
-#access-counter {
+#home-page-content #access-counter {
   margin-bottom: 40px;
 }
