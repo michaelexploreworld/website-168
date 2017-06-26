@@ -3,18 +3,37 @@ jsManagement.home_page = createHomePageController();
 function createHomePageController() {
   return {
     index: function () {
+      adjustWindow();
+
       initScrollSpy();
 
       onScrollInit($('.animation'));
 
-      $('.panel-heading').click(function () {
-        var target = $(this).data("target");
-        $(target).collapse('toggle');
-      });
-
       searchSubwebsite();
     }
   };
+}
+
+function adjustWindow() {
+  $window = $(window);
+  $slide = $('.homeSlide');
+
+  // Init Skrollr
+  var s = skrollr.init({
+    render: function(data) {
+      //Debugging - Log the current scroll position.
+      //console.log(data.curTop);
+    }
+  });
+
+  // Get window size
+  winH = $window.height();
+
+  // Resize our slides
+  $slide.height(winH);
+
+  // Refresh Skrollr after resizing our sections
+  s.refresh($('.homeSlide'));
 }
 
 function initScrollSpy() {

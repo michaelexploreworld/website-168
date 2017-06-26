@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.waypoints.min
+//= require skrollr
 //= require jsManagement
 //= require toastr
 //= require_tree .
