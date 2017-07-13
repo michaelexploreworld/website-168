@@ -1,0 +1,57 @@
+<% websiteCount = 1 %>
+<% @websites.each do |website| %>
+  <% if (websiteCount - 1) % 4 == 0 %>
+    <div class="row">
+  <% end %>
+
+  <div class="subwebsite-item">
+    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 animation animated" data-animation-down-action="fadeIn" data-animation-up-action="fadeOut">
+      <div class="thumbnail">
+        <%= link_to image_tag(website.logo.standard.url, :alt => website.name), website.url %>
+        <div class="caption">
+          <h3><%= website.name %></h3>
+          <p><%= website.description %></p>
+          <p><%= link_to "進入", website.url, :class => "btn btn-primary", :role => "button" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if websiteCount % 2 == 0 %>
+  <div class="clearfix visible-md"></div>
+  <% end %>
+
+  <% if websiteCount % 4 == 0 || websiteCount == @websites.count %>
+    </div>
+    <div class="clearfix visible-lg visible-md"></div>
+  <% end %>
+
+  <% websiteCount += 1 %>
+<% end %>
+
+<div id="subwebsite-pagination">
+  <%= paginate @websites, :remote => true %>
+</div>
+
+<script>
+  function onScrollInit(items) {
+    items.each(function() {
+      var element = $(this),
+          animationDownAction = element.attr('data-animation-down-action');
+          animationUpAction = element.attr('data-animation-up-action');
+
+      element.waypoint(function(direction) {
+          if(direction === "down") {
+            element.addClass(animationDownAction);
+            element.removeClass(animationUpAction);
+          } else if(direction === "up") {
+            element.addClass(animationUpAction);
+            element.removeClass(animationDownAction);
+          }
+        }, { offset: '80%'});
+    });
+  }
+
+
+  onScrollInit($('.animation'));
+</script>

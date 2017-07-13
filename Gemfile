@@ -38,6 +38,8 @@ gem 'carrierwave'
 gem 'mini_magick', '~> 3.5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# Use Kaminari to implement pagination
+gem 'kaminari'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

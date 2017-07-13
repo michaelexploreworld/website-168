@@ -17,4 +17,13 @@ class Website < ApplicationRecord
     params.require(:website)
     permit(:logo, :logo_cache, :remove_logo)
   end
+
+  def self.search(term, pageNumber)
+  if term
+    where('keyword LIKE ?', "%#{term}%").page(pageNumber || 1).per(8)
+  else
+    page(pageNumber || 1).per(8)
+  end
+end
+
 end

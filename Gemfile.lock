@@ -244,6 +244,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen (~> 3.0.5)
   mini_magick (~> 3.5.0)
   mysql2

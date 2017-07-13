@@ -6,10 +6,6 @@ function createHomePageController() {
       adjustWindow();
 
       initScrollSpy();
-
-      onScrollInit($('.animation'));
-
-      searchSubwebsite();
     }
   };
 }
@@ -53,34 +49,3 @@ function initScrollSpy() {
     }
   });
 }
-
-function onScrollInit(items) {
-  items.each(function() {
-    var element = $(this),
-        animationDownAction = element.attr('data-animation-down-action');
-        animationUpAction = element.attr('data-animation-up-action');
-
-    element.waypoint(function(direction) {
-        if(direction === "down") {
-          element.addClass(animationDownAction);
-          element.removeClass(animationUpAction);
-        } else if(direction === "up") {
-          element.addClass(animationUpAction);
-          element.removeClass(animationDownAction);
-        }
-      }, { offset: '80%'});
-  });
-}
-
-function searchSubwebsite() {
-  $('#searchBox').on("input", function(){
-    var userInput = $(this).val();
-    var $searchStyle = $('#searchStyle');
-
-    if(!userInput) {
-      $searchStyle.html("");
-    } else {
-      $searchStyle.html('.subwebsite-item:not([data-keyword*="' + userInput.toLowerCase() + '"]) {display: none;}');
-    }
-  });
-};
