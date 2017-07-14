@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714063246) do
+ActiveRecord::Schema.define(version: 20170714105559) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",               default: "", null: false
@@ -25,9 +25,23 @@ ActiveRecord::Schema.define(version: 20170714063246) do
   end
 
   create_table "count_views", force: :cascade do |t|
-    t.integer  "my_column_name", default: 1110
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.integer  "count_number", default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "homepageviews", force: :cascade do |t|
+    t.string   "brandName",                    null: false
+    t.string   "navItem1",                     null: false
+    t.string   "navItem2",                     null: false
+    t.string   "navItem3",                     null: false
+    t.string   "searchPlaceholder"
+    t.string   "aboutSectionHeader",           null: false
+    t.text     "aboutSectionContent"
+    t.string   "websiteCategorySectionHeader", null: false
+    t.string   "subwebsiteSectionHeader",      null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "impressions", force: :cascade do |t|
