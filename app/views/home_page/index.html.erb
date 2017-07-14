@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
         </button>
         <!-- ***brandName*** -->
-        <%= link_to "168精彩我的世界", home_page_index_path, :class => "navbar-brand" %>
+        <%= link_to "168精彩我的世界homepageview.brandName", home_page_index_path, :class => "navbar-brand" %>
       </div>
 
       <div class="collapse navbar-collapse" id="menuList">
@@ -17,21 +17,21 @@
           <li>
             <%= link_to "#home-section" do %>
             <span class="glyphicon glyphicon-home"></span>
-            首頁
+            首頁homepageview.navItem1
             <% end %>
           </li>
           <!-- ***navItem2*** -->
           <li>
             <%= link_to "#about-section" do %>
             <span class="glyphicon glyphicon-user"></span>
-            關於
+            關於homepageview.navItem2
             <% end %>
           </li>
           <!-- ***navItem3*** -->
           <li>
             <%= link_to "#subwebsite-section" do %>
             <span class="glyphicon glyphicon-globe"></span>
-            網頁
+            網頁homepageview.navItem3
             <% end %>
           </li>
         </ul>
@@ -48,7 +48,7 @@
               <%= form_tag(home_page_search_websites_path, remote: true, method: :get) do %>
               <div class="input-group input-group-lg">
                 <!-- ***searchPlaceholder*** -->
-                <%= text_field_tag :term, params[:term], class: "form-control", placeholder: "輸入查詢關鍵字..."%>
+                <%= text_field_tag :term, params[:term], class: "form-control", placeholder: "輸入查詢關鍵字...homepageview.searchPlaceholder"%>
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="submit">
                     <span class="glyphicon glyphicon-search"></span>
@@ -67,9 +67,9 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <!-- ***aboutSectionHeader*** -->
-        <h2 class="text-center">關於168集團</h2>
+        <h2 class="text-center">關於168集團homepageview.aboutSectionHeader</h2>
         <!-- ***aboutSectionContent*** -->
-        <p id="about-content">168無限大 無限大168ing</p>
+        <p id="about-content">168無限大 無限大168inghomepageview.aboutSectionContent</p>
       </div>
     </div>
   </section>
@@ -80,7 +80,7 @@
         <div class="row">
           <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
             <!-- ***websiteCategorySectionHeader*** -->
-            <h1>網站</h1>
+            <h1>網站homepageview.websiteCategorySectionHeader</h1>
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <!-- ***subwebsiteSectionHeader*** -->
-        <h2 class="text-center">168集團</h2>
+        <h2 class="text-center">168集團homepageview.subwebsiteSectionHeader</h2>
 
         <div id="websites_container" class="container">
           <%= render :partial =>"website_item_list" %>
@@ -107,7 +107,7 @@
           <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
 
             <div class="loading wave">
-              <%= @countview.my_column_name %>
+              countview.my_column_name
 
             </div>
           </div>
