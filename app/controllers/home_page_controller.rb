@@ -3,7 +3,8 @@ class HomePageController < ApplicationController
 
   def index
     @websites = Website.page(params[:page] || 1).per(8)
-
+    @countview = CountView.find(1)
+    impressionist(@countview)
     respond_to do |format|
       format.html
       format.js

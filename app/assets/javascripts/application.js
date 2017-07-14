@@ -18,7 +18,9 @@
 //= require skrollr
 //= require jsManagement
 //= require toastr
+//= require prefixfree.min
 //= require_tree .
+
 
 (function($, undefined) {
   $(document).on('turbolinks:load', function () {
