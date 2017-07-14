@@ -5,7 +5,7 @@ class HomePageController < ApplicationController
     @websites = Website.page(params[:page] || 1).per(8)
     @countview = CountView.find(1)
     impressionist(@countview)
-    @homepageview = Homepageview.fing(1)
+    @homepageview = Homepageview.find(1)
     respond_to do |format|
       format.html
       format.js
