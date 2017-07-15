@@ -6,15 +6,12 @@
   opacity: 0;
 }
 
-#home-page-content .bcg {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+/*  Small devices */
+.bcg {
   background-size: cover;
   height: 100%;
   width: 100%;
 }
-
 .vertical-center {
   min-height: 100%;
 
@@ -46,18 +43,16 @@
   -webkit-justify-content : center;
           justify-content : center;
 }
-
 #home-page-content #home-section .bcg {
   background-image: url('<%= asset_path("home-section-background.jpg") %>');
+  height: 500px;
 }
-
 #home-page-content #website-category .bcg {
   background-image: url('<%= asset_path("website-category-background.jpg") %>');
-  height: 300px;
+  height: 150px;
 }
-
 #home-page-content #footer .bcg {
-  height: 300px;
+  height: 150px;
   background: none;
   background-color: #777;
 }
@@ -66,7 +61,7 @@
   padding: 50px 0px 50px 0px;
 }
 
-#home-page-content #about-section {
+#home-page-content #about-section, #home-page-content #subwebsite-section {
   min-height: 600px;
 }
 
@@ -80,5 +75,62 @@
 
 #home-page-content #footer h3 {
   color: white;
-  font-size: 200%
+  font-size: 150%
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #home-page-content .bcg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+  .vertical-center {
+    min-height: 100%;
+
+    /* Make it a flex container */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    /* Align the bootstrap's container vertically */
+      -webkit-box-align : center;
+    -webkit-align-items : center;
+         -moz-box-align : center;
+         -ms-flex-align : center;
+            align-items : center;
+
+    /* In legacy web browsers such as Firefox 9
+       we need to specify the width of the flex container */
+    width: 100%;
+
+    /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
+       hence the bootstrap's container won't be aligned to the center anymore.
+
+       Therefore, we should use the following declarations to get it centered again */
+           -webkit-box-pack : center;
+              -moz-box-pack : center;
+              -ms-flex-pack : center;
+    -webkit-justify-content : center;
+            justify-content : center;
+  }
+  #home-page-content #home-section .bcg {
+    background-image: url('<%= asset_path("home-section-background.jpg") %>');
+    min-width: 768px;
+    height: 600px;
+  }
+  #home-page-content #website-category .bcg {
+    background-image: url('<%= asset_path("website-category-background.jpg") %>');
+    height: 300px;
+  }
+  #home-page-content #footer .bcg {
+    height: 300px;
+    background: none;
+    background-color: #777;
+  }
 }

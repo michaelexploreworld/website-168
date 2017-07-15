@@ -15,10 +15,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.waypoints.min
+//= require modernizr-custom
 //= require skrollr
 //= require jsManagement
 //= require toastr
 //= require prefixfree.min
+//= require enquire.min
 //= require_tree .
 
 
