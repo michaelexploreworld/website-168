@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714105559) do
+ActiveRecord::Schema.define(version: 20170716064424) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",               default: "", null: false
@@ -34,10 +34,7 @@ ActiveRecord::Schema.define(version: 20170714105559) do
     t.string   "brandName",                    null: false
     t.string   "navItem1",                     null: false
     t.string   "navItem2",                     null: false
-    t.string   "navItem3",                     null: false
     t.string   "searchPlaceholder"
-    t.string   "aboutSectionHeader",           null: false
-    t.text     "aboutSectionContent"
     t.string   "websiteCategorySectionHeader", null: false
     t.string   "subwebsiteSectionHeader",      null: false
     t.datetime "created_at",                   null: false

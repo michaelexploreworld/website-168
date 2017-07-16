@@ -22,16 +22,9 @@
           </li>
           <!-- ***navItem2*** -->
           <li>
-            <%= link_to "#about-section" do %>
-            <span class="glyphicon glyphicon-user"></span>
-            <%= @homepageview.navItem2 %>
-            <% end %>
-          </li>
-          <!-- ***navItem3*** -->
-          <li>
             <%= link_to "#subwebsite-section" do %>
             <span class="glyphicon glyphicon-globe"></span>
-            <%= @homepageview.navItem3 %>
+            <%= @homepageview.navItem2 %>
             <% end %>
           </li>
         </ul>
@@ -59,17 +52,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about-section" class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <!-- ***aboutSectionHeader*** -->
-        <h2 class="text-center"><%= @homepageview.aboutSectionHeader %></h2>
-        <!-- ***aboutSectionContent*** -->
-        <p id="about-content"><%= @homepageview.aboutSectionContent %></p>
       </div>
     </div>
   </section>
