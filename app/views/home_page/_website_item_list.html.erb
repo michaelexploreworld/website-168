@@ -29,8 +29,8 @@
   <% websiteCount += 1 %>
 <% end %>
 
-<div class="text-center">
-  <%= paginate @websites, :remote => true %>
+<div class="text-center row">
+  <%= paginate @websites %>
 </div>
 
 <script>
@@ -52,6 +52,25 @@
     });
   }
 
+  function onPaginationInit() {
+    $('.pagination li:not(.active) a').click(function(e) {
+      e.preventDefault();
+
+      currentState.pageUrl = $(this).attr("href");
+      requestContent(currentState)
+      .done(function() {
+        window.history.pushState(currentState, window.title, currentState.section + currentState.pageUrl);
+      })
+      .fail(function() {
+        var failHtml = "<div class='alert alert-danger' role='alert'><strong>頁面讀取失敗!</strong> 請重新刷新頁面。</div>";
+        $('#websites_container').html(failHtml);
+      })
+      .always(function() {
+      });
+    });
+  }
 
   onScrollInit($('.animation'));
+
+  onPaginationInit();
 </script>

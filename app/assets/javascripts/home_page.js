@@ -1,3 +1,9 @@
+// Global variable used to store page state
+var currentState = {
+  section: "#home_page",
+  pageUrl: null
+};
+
 jsManagement.home_page = createHomePageController();
 
 function createHomePageController() {
@@ -9,6 +15,8 @@ function createHomePageController() {
       enquire.register("screen and (min-width : 768px)", initAdjustWindow(), false);
 
       initScrollSpy();
+
+      bindPopstate();
     }
   };
 }
@@ -62,6 +70,19 @@ function initAdjustWindow() {
   };
 }
 
+function requestContent(state) {
+  var loaderSpinnerHtml = "<div class='loader'></div>";
+  var url;
+
+  $('#websites_container').html(loaderSpinnerHtml);
+  if(state.pageUrl === null) {
+    url = "/";
+  } else {
+    url = state.pageUrl;
+  }
+  return $.ajax(url, { dataType: "script" });
+}
+
 function initScrollSpy() {
   $('body').scrollspy({target: ".navbar", offset: 50});
 
@@ -74,7 +95,37 @@ function initScrollSpy() {
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 800, function() {
-        window.location.hash = hash;
+
+      });
+    }
+  });
+
+  $(".navbar").on("activate.bs.scrollspy", function() {
+    var url;
+
+    currentState.section = $('.nav li.active > a').attr('href');
+    if(currentState.pageUrl === null) {
+      url = currentState.section;
+    } else {
+      url = currentState.section + currentState.pageUrl;
+    }
+    window.history.replaceState(currentState, window.title, url);
+  });
+}
+
+function bindPopstate() {
+  window.history.replaceState("root", window.title, null);
+
+  window.addEventListener('popstate', function(e) {
+    var character = e.state;
+
+    if (character === "root") {
+      window.location.replace("/");
+    } else if (character !== null ){
+      requestContent(character)
+      .fail(function() {
+        var failHtml = "<div class='alert alert-danger' role='alert'><strong>頁面讀取失敗!</strong> 請重新刷新頁面。</div>";
+        $('#websites_container').html(failHtml);
       });
     }
   });
