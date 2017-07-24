@@ -115,8 +115,9 @@ function initScrollSpy() {
 function searchScrollSpy() {
   $('body').scrollspy({target: ".navbar", offset: 50});
 
-  $("#sslide").on('click', function(event) {
+  $("#home-section button").on('click', function(event) {
     if (this.hash !== "") {
+      $(this).submit();
       event.preventDefault();
 
       $('html, body').animate({
