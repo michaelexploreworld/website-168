@@ -23,7 +23,7 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar true
 
-  config.included_models = [ Website, Homepageview ]
+  config.included_models = [ Website, Homepageview]
 
   config.actions do
     dashboard                     # mandatory
@@ -35,7 +35,9 @@ RailsAdmin.config do |config|
     bulk_delete
     show
     edit
-    delete
+    delete do
+      except [ Homepageview ]
+    end
     show_in_app
 
     ## With an audit adapter, you can add:

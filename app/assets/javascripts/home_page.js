@@ -15,7 +15,7 @@ function createHomePageController() {
       enquire.register("screen and (min-width : 768px)", initAdjustWindow(), false);
 
       initScrollSpy();
-
+      searchScrollSpy();
       bindPopstate();
     }
   };
@@ -112,7 +112,21 @@ function initScrollSpy() {
     window.history.replaceState(currentState, window.title, url);
   });
 }
+function searchScrollSpy() {
+  $('body').scrollspy({target: ".navbar", offset: 50});
 
+  $("#sslide").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+
+      $('html, body').animate({
+        scrollTop: $("#subwebsite-section").offset().top
+      }, 800, function() {
+
+      });
+    }
+  });
+}
 function bindPopstate() {
   window.history.replaceState("root", window.title, null);
 
