@@ -113,7 +113,7 @@ function initScrollSpy() {
   });
 }
 function searchScrollSpy() {
-  $('body').scrollspy({target: ".navbar", offset: 50});
+  // $('body').scrollspy({target: ".navbar", offset: 50});
 
   $("#home-section button").on('click', function(event) {
     if (this.hash !== "") {
