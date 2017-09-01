@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170716063254) do
+ActiveRecord::Schema.define(version: 20170831150517) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",               default: "", null: false
@@ -31,14 +31,16 @@ ActiveRecord::Schema.define(version: 20170716063254) do
   end
 
   create_table "homepageviews", force: :cascade do |t|
-    t.string   "brandName",                    null: false
-    t.string   "navItem1",                     null: false
-    t.string   "navItem2",                     null: false
+    t.string   "brandName",                                 null: false
+    t.string   "navItem1",                                  null: false
+    t.string   "navItem2",                                  null: false
     t.string   "searchPlaceholder"
-    t.string   "websiteCategorySectionHeader", null: false
-    t.string   "subwebsiteSectionHeader",      null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string   "websiteCategorySectionHeader",              null: false
+    t.string   "subwebsiteSectionHeader",                   null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.string   "homeSectionBackground",        default: "", null: false
+    t.string   "websiteCategoryBackground",    default: "", null: false
   end
 
   create_table "impressions", force: :cascade do |t|
